@@ -1,2 +1,2 @@
-# netninja-mern-auth
+# MERN stack Auth.
 Netninja MERN stack authentication Tutorial.
