@@ -1,6 +1,7 @@
 const mongoose  = require('mongoose')
 const Schema    = mongoose.Schema
 const bcrypt    = require('bcrypt')
+const validator = require('validator')
 
 const userSchema = new Schema({
     email: {
@@ -17,6 +18,19 @@ const userSchema = new Schema({
 // static signup method
 //! can't use arrow functions when you use "this." you have to use traditional function.
 userSchema.statics.signup = async function(email,password){
+    // validation
+    if(!email || !password){
+        throw Error('All fields must be filled')
+    }
+
+    if(!validator.isEmail(email)){
+        throw Error('Email is no valid')
+    }
+    
+    if(!validator.isStrongPassword(password)){
+        throw Error('Password not strong enough')
+    }
+
     const exist = await this.findOne({email})
 
     if(exist){
