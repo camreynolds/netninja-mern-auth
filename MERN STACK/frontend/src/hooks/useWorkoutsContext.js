@@ -8,6 +8,5 @@ export const useWorkoutContext = () => {
         throw Error('useWorkoutContext must be used inside an WorkoutContextProvider')
     }
 
-    console.log(context);
     return context
 }

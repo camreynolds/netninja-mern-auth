@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 	
 // pages & components
 import Home from './pages/Home';
+import Signup from './pages/Signup'
+import Login from './pages/Login'
 
 function App() {
   return (
@@ -14,6 +16,14 @@ function App() {
 					<Route
 						path="/"
 						element={<Home/>}
+					/>
+					<Route
+						path="/login"
+						element={<Login/>}
+					/>
+					<Route
+						path="/signup"
+						element={<Signup/>}
 					/>
 				</Routes>	
 			</div>
